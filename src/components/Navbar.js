@@ -9,7 +9,8 @@ const Navbar = () => {
   const theme = isLightTheme ? lightTheme : darkTheme;
   return (
     <nav className="navbar" style={{ background: theme.ui, color: theme.font }}>
-      <h1>Your reading list</h1>
+      <h1>DO IT BY THE BOOKS</h1>
+      <h2>Your reading list</h2>
       <p>Currently you have {books.length} books to read.</p>
       <ThemeToggle></ThemeToggle>
     </nav>
