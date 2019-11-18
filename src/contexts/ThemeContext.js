@@ -3,15 +3,15 @@ import React, { createContext, useState } from "react";
 export const ThemeContext = createContext();
 
 const ThemeContextProvider = props => {
-  const [lightTheme, setlightTheme] = useState({
+  const [lightTheme] = useState({
     font: "#555",
-    ui: "#ddd",
-    bg: "#eee"
+    ui: "#000000",
+    bg: "#eeeeee"
   });
-  const [darkTheme, setdarkTheme] = useState({
-    font: "#ddd",
-    ui: "#333",
-    bg: "#555"
+  const [darkTheme] = useState({
+    font: "white",
+    ui: "#202040",
+    bg: "#202060"
   });
   const [isLightTheme, setisLightTheme] = useState(false);
 
