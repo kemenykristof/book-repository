@@ -13,14 +13,17 @@ const ThemeContextProvider = props => {
     ui: "#333",
     bg: "#555"
   });
-  const [isLightTheme, setisLightTheme] = useState(true);
+  const [isLightTheme, setisLightTheme] = useState(false);
 
   const toggleTheme = () => {
     setisLightTheme(!isLightTheme);
   };
+  console.log(lightTheme, darkTheme, isLightTheme);
 
   return (
-    <ThemeContext.Provider value={{ lightTheme, darkTheme, isLightTheme, toggleTheme }}>
+    <ThemeContext.Provider
+      value={{ lightTheme, darkTheme, isLightTheme, toggleTheme }}
+    >
       {props.children}
     </ThemeContext.Provider>
   );

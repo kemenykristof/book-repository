@@ -1,10 +1,13 @@
 import React, { useContext, useState } from "react";
 import { BookContext } from "../contexts/BookContext";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 const NewBookForm = () => {
   const { addBook } = useContext(BookContext);
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
+  const { isLightTheme, darkTheme, lightTheme } = useContext(ThemeContext);
+  const theme = isLightTheme ? lightTheme : darkTheme;
   const handleSubmit = e => {
     e.preventDefault();
     addBook(title, author);
@@ -12,7 +15,10 @@ const NewBookForm = () => {
     setAuthor("");
   };
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      style={{ background: theme.ui, color: theme.font }}
+    >
       <input
         type="text"
         placeholder="book title"
