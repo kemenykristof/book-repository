@@ -13,6 +13,15 @@ const ThemeContextProvider = props => {
     ui: "#202040",
     bg: "#202060"
   });
+  const [newDarkTheme] = useState({
+    font: "white",
+    bodyBackground: "#171f24",
+    appBackground: "#38526313",
+    navbarColor: "#4bb3f917",
+    font: "#fff",
+    inputColor: "#4bb3f917",
+    submitButton: "#399cdf"
+  });
   const [isLightTheme, setisLightTheme] = useState(false);
 
   const toggleTheme = () => {
