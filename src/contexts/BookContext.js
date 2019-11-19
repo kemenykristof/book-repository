@@ -4,8 +4,7 @@ import uuid from "uuid/v1";
 export const BookContext = createContext();
 
 const BookContextProvider = props => {
-  const initialData = window.localStorage.getItem("books") || undefined || null;
-  const [books, setBooks] = useState([
+  /*  const starterData = [
     { title: "Clean Code", author: "Robert C. Martin", id: uuid() },
     {
       title: "Cracking the Coding Interview",
@@ -13,7 +12,13 @@ const BookContextProvider = props => {
       id: uuid()
     },
     { title: "Mastery", author: "Robert Greene", id: uuid() }
-  ]);
+  ]
+  */
+
+  const [books, setBooks] = useState(() => {
+    const localData = localStorage.getItem("books");
+    return localData ? JSON.parse(localData) : [];
+  });
 
   const addBook = (title, author) => {
     setBooks([...books, { title, author, id: uuid() }]);
@@ -23,8 +28,9 @@ const BookContextProvider = props => {
   };
 
   useEffect(() => {
-    window.localStorage.setItem("books", books);
+    window.localStorage.setItem("books", JSON.stringify(books));
   }, [books]);
+
   return (
     <BookContext.Provider value={{ books, addBook, removeBook }}>
       {props.children}

@@ -8,12 +8,12 @@ const Navbar = () => {
   const { isLightTheme, darkTheme, lightTheme } = useContext(ThemeContext);
   const theme = isLightTheme ? lightTheme : darkTheme;
   return (
-    <nav className="navbar">
+    <div className="navbar">
       <h1>DO IT BY THE BOOKS</h1>
       <h2>Your reading list</h2>
       <p>Currently you have {books.length} books to read.</p>
       <ThemeToggle></ThemeToggle>
-    </nav>
+    </div>
   );
 };
 
