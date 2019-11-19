@@ -17,7 +17,7 @@ const NewBookForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      style={{ background: theme.ui, color: theme.font }}
+
     >
       <input
         type="text"

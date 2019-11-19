@@ -10,9 +10,9 @@ const BookList = () => {
   return books.length ? (
     <div
       className="book-list"
-      style={{ color: theme.font, background: theme.bg }}
+    
     >
-      <ul style={{ background: theme.ui }}>
+      <ul >
         {books.map(book => {
           return <BookDetails book={book} key={book.id} />;
         })}
