@@ -27,7 +27,6 @@ const ThemeContextProvider = props => {
   const toggleTheme = () => {
     setisLightTheme(!isLightTheme);
   };
-  console.log(lightTheme, darkTheme, isLightTheme);
 
   return (
     <ThemeContext.Provider

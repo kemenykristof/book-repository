@@ -1,33 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import SearchBox from "./SearchBox";
 import request from "superagent";
+import BookListAPI from "./BookListAPI";
 
-const BooksAPI = () => {
-  const [books, setbooks] = useState([]);
-  const [searchField, setSearchField] = useState("");
+class BooksAPI extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      books: [],
+      searchField: ""
+    };
+  }
 
-  const searchBook = e => {
+  searchBook = e => {
     e.preventDefault();
     request
       .get("https://www.googleapis.com/books/v1/volumes")
-      .query({ q: searchField })
+      .query({ q: this.state.searchField })
       .then(data => {
-        console.log(data);
+        this.setState({ books: [...data.body.items] });
       });
   };
 
-  const handleSearch = event => {
+  handleSearch = event => {
     console.log(event.target.value);
-    setSearchField(event.target.value);
+    this.setState({ searchField: event.target.value });
   };
-  return (
-    <div>
-      <SearchBox
-        searchBook={searchBook}
-        handleSearch={handleSearch}
-      ></SearchBox>
-    </div>
-  );
-};
+  render() {
+    return (
+      <div>
+        <SearchBox
+          searchBook={this.searchBook}
+          handleSearch={this.handleSearch}
+        ></SearchBox>
+        <BookListAPI books={this.state.books}></BookListAPI>
+      </div>
+    );
+  }
+}
 
 export default BooksAPI;
