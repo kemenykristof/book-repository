@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import BookList from "./components/BookList";
 import NewBookForm from "./components/BookForm";
 import ThemeContextProvider from "./contexts/ThemeContext";
-import GoogleAPI from "./components/GoogleAPI";
+import BooksAPI from "./components/BooksAPI";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
           <Navbar></Navbar>
           <BookList></BookList>
           <NewBookForm></NewBookForm>
-          <GoogleAPI></GoogleAPI>
+          <BooksAPI></BooksAPI>
         </ThemeContextProvider>
       </BookContextProvider>
     </div>

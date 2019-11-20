@@ -1,16 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import SearchBox from "./SearchBox";
 
 const BooksAPI = () => {
   const [books, setbooks] = useState([]);
   const [searchField, setSearchField] = useState("");
 
-  handleSearch = event => {
+  const handleSearch = event => {
+    console.log(event.target.value);
     setSearchField(event.target.value);
   };
   return (
     <div>
-      <SearchBox></SearchBox>
+      <SearchBox handleSearch={handleSearch}></SearchBox>
     </div>
   );
 };
