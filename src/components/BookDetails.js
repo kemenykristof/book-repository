@@ -10,7 +10,7 @@ const BookDetails = ({ book }) => {
     <li
       style={{
         background: theme.appBackground,
-        borderRadius: "4px",
+        borderRadius: "10px",
         padding: "10px",
         cursor: "pointer",
         margin: "10px 0",

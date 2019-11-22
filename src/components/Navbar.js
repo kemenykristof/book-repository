@@ -15,7 +15,7 @@ const Navbar = () => {
         padding: "10px 20px",
         textAlign: "center",
         background: theme.navbarColor,
-        borderRadius: "4px",
+        borderRadius: "10px",
         color: theme.font
       }}
     >

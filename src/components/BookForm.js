@@ -22,9 +22,9 @@ const BookForm = () => {
           padding: "10px",
           boxSizing: "border-box",
           margin: "5px 0",
-          borderRadius: "4px",
+          borderRadius: "10px",
           background: theme.inputColor,
-          color: "#fff",
+          color: theme.font,
           border: "0"
         }}
         type="text"
@@ -39,9 +39,9 @@ const BookForm = () => {
           padding: "10px",
           boxSizing: "border-box",
           margin: "5px 0",
-          borderRadius: "4px",
+          borderRadius: "10px",
           background: theme.inputColor,
-          color: "#fff",
+          color: theme.font,
           border: "0"
         }}
         type="text"
@@ -53,14 +53,14 @@ const BookForm = () => {
       <input
         style={{
           margin: "10px auto",
-          background: "#399cdf",
+          background: theme.submitButton,
           border: "0",
-          borderRadius: "4px",
+          borderRadius: "10px",
           padding: "6px 20px",
           display: "block"
         }}
         type="submit"
-        value="add book"
+        value="ADD BOOK"
       />
     </form>
   );

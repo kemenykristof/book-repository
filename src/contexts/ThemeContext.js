@@ -4,17 +4,17 @@ export const ThemeContext = createContext();
 
 const ThemeContextProvider = props => {
   const [lightTheme] = useState({
-    bodyBackground: "#f4f3f3",
-    appBackground: "#647682",
-    navbarColor: "#a6aa9c",
+    bodyBackground: "linear-gradient(to right, #ffefba, #ffffff)",
+    appBackground: "rgba(232, 197, 92, 0.34) none repeat scroll 0% 0%",
+    navbarColor: "rgba(242, 107, 8, 0.56) none repeat scroll 0% 0%",
+    opacity: "0.5",
     font: "black",
-    inputColor: "#b1bed5",
-    submitButton: "#399cdf",
-    authorColor: "#e6e7e5"
+    inputColor: "rgba(242, 107, 8, 0.56) none repeat scroll 0% 0%",
+    submitButton: "rgb(238, 235, 66) none repeat scroll 0% 0%",
+    authorColor: "rgba(232, 197, 92, 0.34) none repeat scroll 0% 0%"
   });
 
   const [darkTheme] = useState({
-    font: "white",
     bodyBackground: "#171f24",
     appBackground: "#38526313",
     navbarColor: "#4bb3f917",
@@ -22,7 +22,6 @@ const ThemeContextProvider = props => {
     inputColor: "#4bb3f917",
     submitButton: "#399cdf",
     authorColor: "#484c7f"
-    
   });
   const [isLightTheme, setisLightTheme] = useState(false);
 
