@@ -13,18 +13,19 @@ const BookDetails = ({ book }) => {
         borderRadius: "4px",
         padding: "10px",
         cursor: "pointer",
-        margin: "10px 0"
+        margin: "10px 0",
+        textAlign: "left"
       }}
       onClick={() => removeBook(book.id)}
     >
       <div
-        stlye={{ fontWeight: "bold", color: theme.font, fontSize: "1.6em" }}
+        style={{ fontWeight: "bold", color: theme.font, fontSize: "1.4em" }}
         className="title"
       >
         {book.title}
       </div>
       <div
-        style={{ fontSize: "1em", color: theme.inputColor }}
+        style={{ fontSize: "1em", color: theme.authorColor }}
         className="author"
       >
         {book.author}

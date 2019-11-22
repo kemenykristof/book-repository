@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import BookContainer from "./BookContainer";
+import { ThemeContext } from "../contexts/ThemeContext";
 
 const AppContainer = () => {
+  const { isLightTheme, darkTheme, lightTheme } = useContext(ThemeContext);
+  const theme = isLightTheme ? lightTheme : darkTheme;
+
   return (
     <div
       style={{
@@ -9,7 +13,7 @@ const AppContainer = () => {
         width: "100%",
         height: "100%",
         textAlign: "center",
-        background: "#171f24",
+        background: theme.bodyBackground,
         overflow: "auto"
       }}
     >
