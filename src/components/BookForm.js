@@ -23,7 +23,7 @@ const BookForm = () => {
           boxSizing: "border-box",
           margin: "5px 0",
           borderRadius: "4px",
-          background: "#4bb3f917",
+          background: theme.inputColor,
           color: "#fff",
           border: "0"
         }}
@@ -40,7 +40,7 @@ const BookForm = () => {
           boxSizing: "border-box",
           margin: "5px 0",
           borderRadius: "4px",
-          background: "#4bb3f917",
+          background: theme.inputColor,
           color: "#fff",
           border: "0"
         }}

@@ -4,11 +4,11 @@ export const ThemeContext = createContext();
 
 const ThemeContextProvider = props => {
   const [lightTheme] = useState({
-    bodyBackground: "#e6e7e5",
-    appBackground: "#f5f1da",
+    bodyBackground: "#f4f3f3",
+    appBackground: "#647682",
     navbarColor: "#a6aa9c",
     font: "black",
-    inputColor: "#a6aa9c",
+    inputColor: "#b1bed5",
     submitButton: "#399cdf",
     authorColor: "#e6e7e5"
   });
@@ -22,6 +22,7 @@ const ThemeContextProvider = props => {
     inputColor: "#4bb3f917",
     submitButton: "#399cdf",
     authorColor: "#484c7f"
+    
   });
   const [isLightTheme, setisLightTheme] = useState(false);
 
