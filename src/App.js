@@ -5,20 +5,14 @@ import BookList from "./components/BookList";
 import NewBookForm from "./components/BookForm";
 import ThemeContextProvider from "./contexts/ThemeContext";
 import BooksAPI from "./components/BooksAPI";
+import AppContainer from "./components/AppContainer";
 
 function App() {
   return (
-    <div className="App" style={{background: "#38526313",
-      margin: "20px auto",
-      width: "90%",
-      maxWidth: "700px",
-      color: "#eee"}}>
+    <div className="root" style={{ background: "blue" }}>
       <BookContextProvider>
         <ThemeContextProvider>
-          <Navbar></Navbar>
-          <BookList></BookList>
-          <NewBookForm></NewBookForm>
-          <BooksAPI></BooksAPI>
+          <AppContainer></AppContainer>
         </ThemeContextProvider>
       </BookContextProvider>
     </div>
