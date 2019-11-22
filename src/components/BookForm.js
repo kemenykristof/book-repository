@@ -15,11 +15,18 @@ const NewBookForm = () => {
     setAuthor("");
   };
   return (
-    <form
-      onSubmit={handleSubmit}
-
-    >
+    <form style={{ padding: "20px" }} onSubmit={handleSubmit}>
       <input
+        style={{
+          width: "100%",
+          padding: "10px",
+          boxSizing: "border-box",
+          margin: "5px 0",
+          borderRadius: "4px",
+          background: "#4bb3f917",
+          color: "#fff",
+          border: "0"
+        }}
         type="text"
         placeholder="book title"
         value={title}
@@ -27,13 +34,34 @@ const NewBookForm = () => {
         required
       />
       <input
+        style={{
+          width: "100%",
+          padding: "10px",
+          boxSizing: "border-box",
+          margin: "5px 0",
+          borderRadius: "4px",
+          background: "#4bb3f917",
+          color: "#fff",
+          border: "0"
+        }}
         type="text"
         placeholder="book author"
         value={author}
         onChange={e => setAuthor(e.target.value)}
         required
       />
-      <input type="submit" value="add book" />
+      <input
+        style={{
+          margin: "10px auto",
+          background: "#399cdf",
+          border: "0",
+          borderRadius: "4px",
+          padding: "6px 20px",
+          display: "block"
+        }}
+        type="submit"
+        value="add book"
+      />
     </form>
   );
 };

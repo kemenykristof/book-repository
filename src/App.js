@@ -8,7 +8,11 @@ import BooksAPI from "./components/BooksAPI";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{background: "#38526313",
+      margin: "20px auto",
+      width: "90%",
+      maxWidth: "700px",
+      color: "#eee"}}>
       <BookContextProvider>
         <ThemeContextProvider>
           <Navbar></Navbar>

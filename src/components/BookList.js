@@ -8,18 +8,17 @@ const BookList = () => {
   const { isLightTheme, darkTheme, lightTheme } = useContext(ThemeContext);
   const theme = isLightTheme ? lightTheme : darkTheme;
   return books.length ? (
-    <div
-      className="book-list"
-    
-    >
-      <ul >
+    <div className="book-list" style={{ margin: "20px" }}>
+      <ul style={{ padding: "0", listStyleType: "none" }}>
         {books.map(book => {
           return <BookDetails book={book} key={book.id} />;
         })}
       </ul>
     </div>
   ) : (
-    <div className="empty">No books to read</div>
+    <div style={{ margin: "20px", textAlign: "center" }} className="empty">
+      No books to read
+    </div>
   );
 };
 
