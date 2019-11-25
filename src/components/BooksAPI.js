@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-
+import React, { useState, useContext } from "react";
+import { ThemeContext } from "../contexts/ThemeContext";
 import axios from "axios";
 
 const BooksAPI = () => {
   const [books, setBooks] = useState({ items: [] });
   const [searchTerm, setSearchTerm] = useState("");
+  const { isLightTheme, lightTheme, darkTheme } = useContext(ThemeContext);
+  const theme = isLightTheme ? lightTheme : darkTheme;
   const onInputChange = e => {
     setSearchTerm(e.target.value);
   };
@@ -48,6 +50,7 @@ const BooksAPI = () => {
                 />
                 <div>
                   <h3>{book.volumeInfo.title}</h3>
+                  <h4>{book.volumeInfo.authors}</h4>
                   <p>{book.volumeInfo.publishedDate}</p>
                 </div>
               </div>
