@@ -6,11 +6,11 @@ const ThemeContextProvider = props => {
   const [lightTheme] = useState({
     bodyBackground: "linear-gradient(to right, #ffefba, #ffffff)",
     appBackground: "rgba(232, 197, 92, 0.34) none repeat scroll 0% 0%",
-    navbarColor: "rgba(242, 107, 8, 0.56) none repeat scroll 0% 0%",
+    navbarColor: "#C0C0C0",
     opacity: "0.5",
     font: "black",
-    inputColor: "rgba(242, 107, 8, 0.56) none repeat scroll 0% 0%",
-    submitButton: "rgb(238, 235, 66) none repeat scroll 0% 0%",
+    inputColor: "#C0C0C0",
+    submitButton: "#4CAF50",
     authorColor: "rgba(232, 197, 92, 0.34) none repeat scroll 0% 0%"
   });
 
