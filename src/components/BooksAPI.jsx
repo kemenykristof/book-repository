@@ -28,7 +28,7 @@ const BooksAPI = () => {
     <section>
       <form onSubmit={onSubmitHandler}>
         <label>
-          <span>Search for books</span>
+          <span style={{ color: theme.font }}>Search for books</span>
           <input
             type="search"
             placeholder=""
@@ -39,7 +39,7 @@ const BooksAPI = () => {
           <button type="submit">Search</button>
         </label>
       </form>
-      <ul style={{ listStyleType: "none" }}>
+      <ul style={{ listStyleType: "none", color: theme.font }}>
         {books.items.map((book, index) => {
           return (
             <li key={index}>
