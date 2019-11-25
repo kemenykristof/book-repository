@@ -5,8 +5,6 @@ import { ThemeContext } from "../contexts/ThemeContext";
 
 const BookList = () => {
   const { books } = useContext(BookContext);
-  const { isLightTheme, darkTheme, lightTheme } = useContext(ThemeContext);
-  const theme = isLightTheme ? lightTheme : darkTheme;
   return books.length ? (
     <div className="book-list" style={{ margin: "20px" }}>
       <ul style={{ padding: "0", listStyleType: "none" }}>

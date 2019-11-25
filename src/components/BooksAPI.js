@@ -1,7 +1,5 @@
-import React, { useState, Component } from "react";
-import SearchBox from "./SearchBox";
-import request from "superagent";
-import BookListAPI from "./BookListAPI";
+import React, { useState } from "react";
+
 import axios from "axios";
 
 const BooksAPI = () => {
@@ -31,7 +29,7 @@ const BooksAPI = () => {
           <span>Search for books</span>
           <input
             type="search"
-            placeholder="microservice, restful design, etc.,"
+            placeholder=""
             value={searchTerm}
             onChange={onInputChange}
           />
@@ -39,7 +37,7 @@ const BooksAPI = () => {
           <button type="submit">Search</button>
         </label>
       </form>
-      <ul>
+      <ul style={{ listStyleType: "none" }}>
         {books.items.map((book, index) => {
           return (
             <li key={index}>
