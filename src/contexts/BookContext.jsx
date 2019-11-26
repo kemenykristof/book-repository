@@ -21,6 +21,8 @@ const BookContextProvider = props => {
     window.localStorage.setItem("books", JSON.stringify(books));
   }, [books]);
 
+  
+
   return (
     <BookContext.Provider value={{ books, addBook, removeBook }}>
       {props.children}

@@ -4,8 +4,17 @@ import BookList from "./BookList";
 import BooksAPI from "./BooksAPI";
 import BookForm from "./BookForm";
 import Home from "../registration/Home";
+import firebase from "../firebase/Firebase";
 
 const BookContainer = () => {
+
+  const addBook = (title, authors) => {
+    const db = firebase.firestore();
+    db.collection("books").add({
+      title,
+      authors
+    });
+  };
   return (
     <div
       style={{
@@ -20,7 +29,7 @@ const BookContainer = () => {
       <Navbar></Navbar>
       <BookList></BookList>
       <BookForm></BookForm>
-      <BooksAPI></BooksAPI>
+      <BooksAPI addBook={addBook}></BooksAPI>
     </div>
   );
 };

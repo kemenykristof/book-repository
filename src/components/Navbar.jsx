@@ -1,12 +1,20 @@
 import React, { useContext } from "react";
-import { BookContext } from "../contexts/BookContext";
+import firebase from "../firebase/Firebase";
 import { ThemeContext } from "../contexts/ThemeContext";
 import ThemeToggle from "./ThemeButton";
 
 const Navbar = () => {
-  const { books } = useContext(BookContext);
   const { isLightTheme, darkTheme, lightTheme } = useContext(ThemeContext);
   const theme = isLightTheme ? lightTheme : darkTheme;
+
+  const getBooksCount = () => {
+    const db = firebase.firestore();
+    db.collection("books")
+      .get()
+      .then(snap => {
+        return snap.size;
+      });
+  };
 
   return (
     <div
@@ -21,7 +29,7 @@ const Navbar = () => {
     >
       <h1 style={{ margin: "10px 0" }}>DO IT BY THE BOOKS</h1>
       <h2>Your reading list</h2>
-      <p>Currently you have {books.length} books to read.</p>
+      <p>Currently you have {() => getBooksCount()} books to read.</p>
       <ThemeToggle />
     </div>
   );

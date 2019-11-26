@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import axios from "axios";
-import firebase from "../firebase/Firebase";
 
-const BooksAPI = () => {
+
+const BooksAPI = (props) => {
   const [searchedBooks, setBooks] = useState({ items: [] });
   const [searchTerm, setSearchTerm] = useState("");
   const { isLightTheme, lightTheme, darkTheme } = useContext(ThemeContext);
@@ -25,14 +25,6 @@ const BooksAPI = () => {
     fetchBooks();
   };
 
-  const addBook = book => {
-    const db = firebase.firestore();
-    db.collection("books").add({
-      title: book.volumeInfo.title,
-      authors: book.volumeInfo.authors
-    });
-  };
-
   const renderBook = (book, index) => {
     return (
       <li key={index}>
@@ -48,7 +40,7 @@ const BooksAPI = () => {
           </div>
         </div>
         <div
-          onClick={() => addBook(book)}
+          onClick={() => props.addBook(book.volumeInfo.title,book.volumeInfo.authors)}
           style={{
             margin: "10px auto",
             background: theme.submitButton,
