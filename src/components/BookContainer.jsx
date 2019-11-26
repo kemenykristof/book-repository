@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import BookList from "./BookList";
 import BooksAPI from "./BooksAPI";
 import BookForm from "./BookForm";
+import Home from "../registration/Home";
 
 const BookContainer = () => {
   return (
@@ -15,6 +16,7 @@ const BookContainer = () => {
         overflow: "auto"
       }}
     >
+      <Home></Home>
       <Navbar></Navbar>
       <BookList></BookList>
       <BookForm></BookForm>
