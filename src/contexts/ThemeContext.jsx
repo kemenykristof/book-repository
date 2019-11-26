@@ -21,7 +21,7 @@ const ThemeContextProvider = props => {
     font: "#fff",
     inputColor: "#4bb3f917",
     submitButton: "#399cdf",
-    authorColor: "#484c7f"
+    authorColor: "rgb(13, 148, 171)"
   });
   const [isLightTheme, setisLightTheme] = useState(false);
 
