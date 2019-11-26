@@ -1,12 +1,23 @@
-import React, { useContext } from "react";
-import { BookContext } from "../contexts/BookContext";
+import React, { useContext, useState, useEffect } from "react";
 import BookDetails from "./BookDetails";
 import { ThemeContext } from "../contexts/ThemeContext";
+import firebase from "../firebase/Firebase";
 
 const BookList = () => {
   const { isLightTheme, darkTheme, lightTheme } = useContext(ThemeContext);
   const theme = isLightTheme ? lightTheme : darkTheme;
-  const { books } = useContext(BookContext);
+  const [books, setbooks] = useState([]);
+  const [newBook, setnewBook] = useState();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const db = firebase.firestore();
+      const data = await db.collection("books").get();
+      setbooks(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
+    };
+    fetchData();
+  }, []);
+
   return books.length ? (
     <div className="book-list" style={{ margin: "20px" }}>
       <ul style={{ padding: "0", listStyleType: "none" }}>

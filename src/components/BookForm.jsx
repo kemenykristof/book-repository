@@ -1,21 +1,27 @@
 import React, { useContext, useState } from "react";
 import { BookContext } from "../contexts/BookContext";
 import { ThemeContext } from "../contexts/ThemeContext";
+import firebase from "../firebase/Firebase";
 
 const BookForm = () => {
   const { addBook } = useContext(BookContext);
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
+  const [newTitle, setNewTitle] = useState("");
+  const [newAuthor, setNewAuthor] = useState("");
   const { isLightTheme, darkTheme, lightTheme } = useContext(ThemeContext);
   const theme = isLightTheme ? lightTheme : darkTheme;
-  const handleSubmit = e => {
+
+
+  const handleNewBookSubmit = e => {
     e.preventDefault();
-    addBook(title, author);
-    setTitle("");
-    setAuthor("");
+    const db = firebase.firestore();
+    db.collection("books").add({ title: newTitle, authors: newAuthor });
+    setNewTitle("");
+    setNewAuthor("");
   };
+
+  
   return (
-    <form style={{ padding: "20px" }} onSubmit={handleSubmit}>
+    <form style={{ padding: "20px" }} onSubmit={handleNewBookSubmit}>
       <input
         style={{
           width: "100%",
@@ -29,8 +35,8 @@ const BookForm = () => {
         }}
         type="text"
         placeholder="book title"
-        value={title}
-        onChange={e => setTitle(e.target.value)}
+        value={newTitle}
+        onChange={e => setNewTitle(e.target.value)}
         required
       />
       <input
@@ -46,8 +52,8 @@ const BookForm = () => {
         }}
         type="text"
         placeholder="book author"
-        value={author}
-        onChange={e => setAuthor(e.target.value)}
+        value={newAuthor}
+        onChange={e => setNewAuthor(e.target.value)}
         required
       />
       <input

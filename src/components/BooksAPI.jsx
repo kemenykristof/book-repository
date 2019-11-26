@@ -3,7 +3,7 @@ import { ThemeContext } from "../contexts/ThemeContext";
 import axios from "axios";
 
 const BooksAPI = () => {
-  const [books, setBooks] = useState({ items: [] });
+  const [searchedBooks, setBooks] = useState({ items: [] });
   const [searchTerm, setSearchTerm] = useState("");
   const { isLightTheme, lightTheme, darkTheme } = useContext(ThemeContext);
   const theme = isLightTheme ? lightTheme : darkTheme;
@@ -40,7 +40,7 @@ const BooksAPI = () => {
         </label>
       </form>
       <ul style={{ listStyleType: "none", color: theme.font }}>
-        {books.items.map((book, index) => {
+        {searchedBooks.items.map((book, index) => {
           return (
             <li key={index}>
               <div>

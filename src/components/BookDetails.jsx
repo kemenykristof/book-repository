@@ -1,11 +1,18 @@
 import React, { useContext } from "react";
-import { BookContext } from "../contexts/BookContext";
 import { ThemeContext } from "../contexts/ThemeContext";
+import firebase from "../firebase/Firebase";
 
 const BookDetails = ({ book }) => {
-  const { removeBook } = useContext(BookContext);
   const { isLightTheme, lightTheme, darkTheme } = useContext(ThemeContext);
   const theme = isLightTheme ? lightTheme : darkTheme;
+
+  const deleteBook = () => {
+    const db = firebase.firestore();
+    db.collection("books")
+      .doc(book.id)
+      .delete();
+  };
+
   return (
     <li
       style={{
@@ -16,7 +23,7 @@ const BookDetails = ({ book }) => {
         margin: "10px 0",
         textAlign: "left"
       }}
-      onClick={() => removeBook(book.id)}
+      onClick={deleteBook}
     >
       <div
         style={{ fontWeight: "bold", color: theme.font, fontSize: "1.4em" }}
@@ -28,7 +35,7 @@ const BookDetails = ({ book }) => {
         style={{ fontSize: "1em", color: theme.authorColor }}
         className="author"
       >
-        {book.author}
+        {book.authors}
       </div>
     </li>
   );
