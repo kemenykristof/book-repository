@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import axios from "axios";
+import firebase from "../firebase/Firebase";
 
 const BooksAPI = () => {
   const [searchedBooks, setBooks] = useState({ items: [] });
@@ -24,6 +25,47 @@ const BooksAPI = () => {
     fetchBooks();
   };
 
+  const addBook = book => {
+    const db = firebase.firestore();
+    db.collection("books").add({
+      title: book.volumeInfo.title,
+      authors: book.volumeInfo.authors
+    });
+  };
+
+  const renderBook = (book, index) => {
+    return (
+      <li key={index}>
+        <div>
+          <img
+            alt={`${book.volumeInfo.title} book`}
+            src={`http://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=1&source=gbs_api`}
+          />
+          <div>
+            <h3>{book.volumeInfo.title}</h3>
+            <h4>{book.volumeInfo.authors}</h4>
+            <p>{book.volumeInfo.publishedDate}</p>
+          </div>
+        </div>
+        <div
+          onClick={() => addBook(book)}
+          style={{
+            margin: "10px auto",
+            background: theme.submitButton,
+            border: "0",
+            borderRadius: "10px",
+            padding: "6px 20px",
+            display: "block",
+            cursor: "pointer"
+          }}
+        >
+          ADD BOOK
+        </div>
+        <hr />
+      </li>
+    );
+  };
+
   return (
     <section>
       <form onSubmit={onSubmitHandler}>
@@ -40,24 +82,7 @@ const BooksAPI = () => {
         </label>
       </form>
       <ul style={{ listStyleType: "none", color: theme.font }}>
-        {searchedBooks.items.map((book, index) => {
-          return (
-            <li key={index}>
-              <div>
-                <img
-                  alt={`${book.volumeInfo.title} book`}
-                  src={`http://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=1&source=gbs_api`}
-                />
-                <div>
-                  <h3>{book.volumeInfo.title}</h3>
-                  <h4>{book.volumeInfo.authors}</h4>
-                  <p>{book.volumeInfo.publishedDate}</p>
-                </div>
-              </div>
-              <hr />
-            </li>
-          );
-        })}
+        {searchedBooks.items.map(renderBook)}
       </ul>
     </section>
   );
