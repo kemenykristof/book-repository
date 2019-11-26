@@ -2,6 +2,7 @@ import React, { useCallback, useContext } from "react";
 import { withRouter, Redirect } from "react-router";
 import app from "../firebase/Firebase";
 import { AuthContext } from "../contexts/AuthContext";
+import { Link } from "react-router-dom";
 
 const Login = ({ history }) => {
   const handleLogin = useCallback(
@@ -40,6 +41,9 @@ const Login = ({ history }) => {
         </label>
         <button type="submit">Log in</button>
       </form>
+      <div>
+        <Link to="/signup">No account? Sign up here!</Link>
+      </div>
     </div>
   );
 };
