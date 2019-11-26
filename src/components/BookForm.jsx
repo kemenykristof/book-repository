@@ -1,15 +1,12 @@
 import React, { useContext, useState } from "react";
-import { BookContext } from "../contexts/BookContext";
 import { ThemeContext } from "../contexts/ThemeContext";
 import firebase from "../firebase/Firebase";
 
 const BookForm = () => {
-  const { addBook } = useContext(BookContext);
   const [newTitle, setNewTitle] = useState("");
   const [newAuthor, setNewAuthor] = useState("");
   const { isLightTheme, darkTheme, lightTheme } = useContext(ThemeContext);
   const theme = isLightTheme ? lightTheme : darkTheme;
-
 
   const handleNewBookSubmit = e => {
     e.preventDefault();
@@ -19,7 +16,6 @@ const BookForm = () => {
     setNewAuthor("");
   };
 
-  
   return (
     <form style={{ padding: "20px" }} onSubmit={handleNewBookSubmit}>
       <input

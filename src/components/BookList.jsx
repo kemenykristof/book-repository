@@ -7,7 +7,6 @@ const BookList = () => {
   const { isLightTheme, darkTheme, lightTheme } = useContext(ThemeContext);
   const theme = isLightTheme ? lightTheme : darkTheme;
   const [books, setbooks] = useState([]);
-  const [newBook, setnewBook] = useState();
 
   useEffect(() => {
     const fetchData = async () => {
