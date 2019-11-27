@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import firebase from "../firebase/Firebase";
+import uuid from "uuid/v1";
 
 const BookForm = () => {
   const [newTitle, setNewTitle] = useState("");
@@ -11,7 +12,11 @@ const BookForm = () => {
   const handleNewBookSubmit = e => {
     e.preventDefault();
     const db = firebase.firestore();
-    db.collection("books").add({ title: newTitle, authors: newAuthor });
+    db.collection("books").add({
+      title: newTitle,
+      authors: newAuthor,
+      id: uuid()
+    });
     setNewTitle("");
     setNewAuthor("");
   };
