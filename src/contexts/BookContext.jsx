@@ -1,37 +1,30 @@
 import React, { createContext, useState, useEffect } from "react";
-import uuid from "uuid/v1";
 import firebase from "../firebase/Firebase";
 
 export const BookContext = createContext();
 
 const BookContextProvider = props => {
-  const [databaseBooks, setBooks] = useState(() => {
-    const localData = localStorage.getItem("books");
-    return localData ? JSON.parse(localData) : [];
-  });
-
-  const addBook = (title, author) => {
-    setBooks([...databaseBooks, { title, author, id: uuid() }]);
-  };
-  const removeBook = id => {
-    setBooks(databaseBooks.filter(book => book.id !== id));
-  };
+  const [databaseBooks, setDatabaseBooks] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const db = firebase.firestore();
-      const data = await db.collection("books").get();
-      setBooks(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
-    };
-    fetchData();
+    listenForUpdates();
   }, []);
 
-  useEffect(() => {
-    window.localStorage.setItem("books", JSON.stringify(databaseBooks));
-  }, [databaseBooks]);
+  const listenForUpdates = () => {
+    const db = firebase.firestore();
+    db.collection("books").onSnapshot(
+      snapshot => {
+        const allBooks = [];
+        snapshot.forEach(doc => allBooks.push({...doc.data(), id: doc.id}));
+        console.log(allBooks, "allbooks")
+        setDatabaseBooks(allBooks);
+      },
+      error => console.error(error)
+    );
+  };
 
   return (
-    <BookContext.Provider value={{ databaseBooks, addBook, removeBook }}>
+    <BookContext.Provider value={{ databaseBooks }}>
       {props.children}
     </BookContext.Provider>
   );
