@@ -71,14 +71,7 @@ const BooksAPI = props => {
   return (
     <section>
       <span style={{ color: theme.font }}>Search for books</span>
-      <form
-        style={{
-          width: "500px",
-          margin: "0 auto",
-          padding: "20px 0px 20px 140px"
-        }}
-        onSubmit={onSubmitHandler}
-      >
+      <form onSubmit={onSubmitHandler}>
         <label>
           <input
             type="search"
@@ -91,12 +84,10 @@ const BooksAPI = props => {
             style={{
               display: "inline",
               background: theme.navbarColor,
-              color: "#fff",
+              color: theme.font,
               border: "none",
-              padding: "8px 13px 10px 13px",
-              margin: "0 15px 0 0",
-              position: "relative",
-              top: "-2px"
+              padding: "10px 15px 10px 15px",
+              position: "relative"
             }}
             type="submit"
           >
