@@ -4,7 +4,7 @@ export const ThemeContext = createContext();
 
 const ThemeContextProvider = props => {
   const [lightTheme] = useState({
-    bodyBackground: "linear-gradient(to right, #ffefba, #ffffff)",
+    bodyBackground: "#FAFAFA",
     appBackground: "rgba(232, 197, 92, 0.34) none repeat scroll 0% 0%",
     navbarColor: "#C0C0C0",
     opacity: "0.5",

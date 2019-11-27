@@ -15,6 +15,7 @@ const BookDetails = ({ book }) => {
 
   return (
     <li
+      key={book.id}
       style={{
         background: theme.appBackground,
         borderRadius: "10px",
@@ -23,7 +24,7 @@ const BookDetails = ({ book }) => {
         margin: "10px 0",
         textAlign: "left"
       }}
-      onClick={deleteBook}
+      onClick={() => deleteBook(book.id)}
     >
       <div
         style={{ fontWeight: "bold", color: theme.font, fontSize: "1.4em" }}

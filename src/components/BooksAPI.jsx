@@ -27,7 +27,7 @@ const BooksAPI = props => {
 
   const bookCardStyle = {
     width: "200px",
-    border: "1px solid white",
+    border: "1px solid steelblue",
     margin: "0 auto",
     borderRadius: "5px",
     overflow: "hidden"
