@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 export const ThemeContext = createContext();
 
@@ -23,10 +23,13 @@ const ThemeContextProvider = props => {
     submitButton: "#399cdf",
     authorColor: "rgb(13, 148, 171)"
   });
-  const [isLightTheme, setisLightTheme] = useState(false);
+  const [isLightTheme, setisLightTheme] = useState(
+    window.localStorage.getItem("isLightTheme")
+  );
 
   const toggleTheme = () => {
     setisLightTheme(!isLightTheme);
+    window.localStorage.setItem("isLightTheme", !isLightTheme);
   };
 
   return (

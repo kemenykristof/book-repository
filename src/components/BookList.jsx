@@ -17,6 +17,27 @@ const BookList = () => {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    listenForBookChanges();
+  }, []);
+
+  const listenForBookChanges = () => {
+    const db = firebase.firestore();
+    db.collection("books").onSnapshot(
+      snapshot => {
+        // Loop through the snapshot and collect
+        // the necessary info we need. Then push
+        // it into our array
+        const allBooks = [];
+        snapshot.forEach(doc => allBooks.push(doc.data()));
+
+        // Set the collected array as our state
+        setbooks(allBooks);
+      },
+      error => console.error(error)
+    );
+  };
+
   return books.length ? (
     <div className="book-list" style={{ margin: "20px" }}>
       <ul style={{ padding: "0", listStyleType: "none" }}>
