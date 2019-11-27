@@ -2,8 +2,7 @@ import React, { useState, useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import axios from "axios";
 
-
-const BooksAPI = (props) => {
+const BooksAPI = props => {
   const [searchedBooks, setBooks] = useState({ items: [] });
   const [searchTerm, setSearchTerm] = useState("");
   const { isLightTheme, lightTheme, darkTheme } = useContext(ThemeContext);
@@ -25,11 +24,20 @@ const BooksAPI = (props) => {
     fetchBooks();
   };
 
+  const bookCardStyle = {
+    width: "200px",
+    border: "1px solid white",
+    margin: "0 auto",
+    borderRadius: "5px",
+    overflow: "hidden"
+  };
+
   const renderBook = (book, index) => {
     return (
       <li key={index}>
-        <div>
+        <div style={bookCardStyle}>
           <img
+            style={{ width: "100%", height: "200px" }}
             alt={`${book.volumeInfo.title} book`}
             src={`http://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=1&source=gbs_api`}
           />
@@ -40,15 +48,17 @@ const BooksAPI = (props) => {
           </div>
         </div>
         <div
-          onClick={() => props.addBook(book.volumeInfo.title,book.volumeInfo.authors)}
+          onClick={() =>
+            props.addBook(book.volumeInfo.title, book.volumeInfo.authors)
+          }
           style={{
             margin: "10px auto",
             background: theme.submitButton,
             border: "0",
             borderRadius: "10px",
             padding: "6px 20px",
-            display: "block",
-            cursor: "pointer"
+            cursor: "pointer",
+            maxWidth: 180
           }}
         >
           ADD BOOK
@@ -60,9 +70,16 @@ const BooksAPI = (props) => {
 
   return (
     <section>
-      <form onSubmit={onSubmitHandler}>
+      <span style={{ color: theme.font }}>Search for books</span>
+      <form
+        style={{
+          width: "500px",
+          margin: "0 auto",
+          padding: "20px 0px 20px 140px"
+        }}
+        onSubmit={onSubmitHandler}
+      >
         <label>
-          <span style={{ color: theme.font }}>Search for books</span>
           <input
             type="search"
             placeholder=""
@@ -70,7 +87,21 @@ const BooksAPI = (props) => {
             onChange={onInputChange}
           />
 
-          <button type="submit">Search</button>
+          <button
+            style={{
+              display: "inline",
+              background: theme.navbarColor,
+              color: "#fff",
+              border: "none",
+              padding: "8px 13px 10px 13px",
+              margin: "0 15px 0 0",
+              position: "relative",
+              top: "-2px"
+            }}
+            type="submit"
+          >
+            Search
+          </button>
         </label>
       </form>
       <ul style={{ listStyleType: "none", color: theme.font }}>

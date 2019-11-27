@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div style={{ color: theme.font }}>
       <h1>Home</h1>
-      <PowerSettingsNewIcon
+      <PowerSettingsNewIcon style={{cursor: "pointer"}}
         onClick={() => app.auth().signOut()}
       ></PowerSettingsNewIcon>
       <ThemeToggle />
