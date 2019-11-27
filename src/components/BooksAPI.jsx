@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import axios from "axios";
+import { bookAuthors } from "../util/BookAuthorHandler";
 
 const BooksAPI = props => {
   const [searchedBooks, setBooks] = useState({ items: [] });
@@ -43,7 +44,7 @@ const BooksAPI = props => {
           />
           <div>
             <h3>{book.volumeInfo.title}</h3>
-            <h4>{book.volumeInfo.authors}</h4>
+            <h4>{bookAuthors(book.volumeInfo.authors)}</h4>
             <p>{book.volumeInfo.publishedDate}</p>
           </div>
         </div>

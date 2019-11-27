@@ -5,14 +5,15 @@ import BooksAPI from "./BooksAPI";
 import BookForm from "./BookForm";
 import Home from "../registration/Home";
 import firebase from "../firebase/Firebase";
+import { bookAuthors } from "../util/BookAuthorHandler";
 
 const BookContainer = () => {
-
   const addBook = (title, authors) => {
     const db = firebase.firestore();
+    let formattedAuthors = bookAuthors(authors);
     db.collection("books").add({
-      title,
-      authors
+      title: title,
+      authors: formattedAuthors
     });
   };
   return (
