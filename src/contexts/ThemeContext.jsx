@@ -23,9 +23,14 @@ const ThemeContextProvider = props => {
     submitButton: "#399cdf",
     authorColor: "rgb(13, 148, 171)"
   });
-  const [isLightTheme, setisLightTheme] = useState(
-    window.localStorage.getItem("isLightTheme")
-  );
+  const [isLightTheme, setisLightTheme] = useState(() => {
+    const localData = localStorage.getItem("isLightTheme");
+    return localData ? JSON.parse(localData) : false;
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem("isLighTheme", JSON.stringify(isLightTheme));
+  }, [isLightTheme]);
 
   const toggleTheme = () => {
     setisLightTheme(!isLightTheme);
