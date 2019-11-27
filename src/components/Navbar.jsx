@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import firebase from "../firebase/Firebase";
 import { ThemeContext } from "../contexts/ThemeContext";
-import ThemeToggle from "./ThemeButton";
+
 
 const Navbar = () => {
   const { isLightTheme, darkTheme, lightTheme } = useContext(ThemeContext);
@@ -30,7 +30,7 @@ const Navbar = () => {
       <h1 style={{ margin: "10px 0" }}>DO IT BY THE BOOKS</h1>
       <h2>Your reading list</h2>
       <p>Currently you have {() => getBooksCount()} books to read.</p>
-      <ThemeToggle />
+      
     </div>
   );
 };

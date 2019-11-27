@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import app from "../firebase/Firebase";
 import { ThemeContext } from "../contexts/ThemeContext";
+import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
+import ThemeToggle from "../components/ThemeButton";
 
 const Home = () => {
   const { isLightTheme, darkTheme, lightTheme } = useContext(ThemeContext);
@@ -9,7 +11,10 @@ const Home = () => {
   return (
     <div style={{ color: theme.font }}>
       <h1>Home</h1>
-      <button onClick={() => app.auth().signOut()}>Sign out</button>
+      <PowerSettingsNewIcon
+        onClick={() => app.auth().signOut()}
+      ></PowerSettingsNewIcon>
+      <ThemeToggle />
     </div>
   );
 };
