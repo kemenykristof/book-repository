@@ -63,7 +63,8 @@ const BookForm = () => {
           border: "0",
           borderRadius: "10px",
           padding: "6px 20px",
-          display: "block"
+          display: "block",
+          cursor: "pointer"
         }}
         type="submit"
         value="ADD BOOK"
