@@ -10,6 +10,7 @@ import TextField from "@material-ui/core/TextField";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+import Header2 from "./Header2";
 
 const Login = ({ history }) => {
   const handleLogin = useCallback(
@@ -35,54 +36,62 @@ const Login = ({ history }) => {
   }
 
   const paperStyle = {
-    marginTop: "8px",
+    marginTop: "60px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center"
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div style={paperStyle}>
-        <Avatar style={{ color: "blue" }} className="avatar">
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Log in
-        </Typography>
-        <form onSubmit={handleLogin}>
-          <label>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              name="email"
-              type="email"
-              placeholder="Email"
-              required
-              fullWidth
-            />
-          </label>
-          <label>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              name="password"
-              type="password"
-              placeholder="Password"
-              required
-              fullWidth
-            />
-          </label>
-          <Button fullWidth variant="contained" color="primary" type="submit">
+    <div>
+      <Header2 />
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div style={paperStyle}>
+          <Avatar style={{ color: "rgb(13, 148, 171)" }} className="avatar">
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
             Log in
-          </Button>
-        </form>
-        <div>
-          <Link to="/signup">No account? Sign up here!</Link>
+          </Typography>
+          <form onSubmit={handleLogin}>
+            <label>
+              <TextField
+                variant="outlined"
+                margin="normal"
+                name="email"
+                type="email"
+                placeholder="Email"
+                required
+                fullWidth
+              />
+            </label>
+            <label>
+              <TextField
+                variant="outlined"
+                margin="normal"
+                name="password"
+                type="password"
+                placeholder="Password"
+                required
+                fullWidth
+              />
+            </label>
+            <Button
+              fullWidth
+              variant="contained"
+              style={{ backgroundColor: "rgb(13, 148, 171)", color: "white" }}
+              type="submit"
+            >
+              Log in
+            </Button>
+          </form>
+          <div>
+            <Link to="/signup">No account? Sign up here!</Link>
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </div>
   );
 };
 

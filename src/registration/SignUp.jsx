@@ -9,6 +9,7 @@ import TextField from "@material-ui/core/TextField";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+import Header2 from "./Header2";
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(
@@ -28,56 +29,64 @@ const SignUp = ({ history }) => {
   );
 
   const paperStyle = {
-    marginTop: "8px",
+    marginTop: "60px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center"
   };
 
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div style={paperStyle}>
-        <Avatar style={{ color: "blue" }} className="avatar">
-          <AccountCircleIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign up
-        </Typography>
-        <form onSubmit={handleSignUp}>
-          <label>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              name="email"
-              type="email"
-              placeholder="Email"
-              required
+    <div>
+      <Header2 />
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <div style={paperStyle}>
+          <Avatar style={{ color: "rgb(13, 148, 171)" }} className="avatar">
+            <AccountCircleIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Sign up
+          </Typography>
+          <form onSubmit={handleSignUp}>
+            <label>
+              <TextField
+                variant="outlined"
+                margin="normal"
+                name="email"
+                type="email"
+                placeholder="Email"
+                required
+                fullWidth
+              />
+            </label>
+            <label>
+              <TextField
+                variant="outlined"
+                margin="normal"
+                name="password"
+                type="password"
+                placeholder="Password"
+                required
+                fullWidth
+              />
+            </label>
+            <Button
               fullWidth
-            />
-          </label>
-          <label>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              name="password"
-              type="password"
-              placeholder="Password"
-              required
-              fullWidth
-            />
-          </label>
-          <Button fullWidth variant="contained" color="primary" type="submit">
-            Sign Up
-          </Button>
-        </form>
-        <div>
-          <Link to="/login">
-            Already have an account registered? Log in here!
-          </Link>
+              variant="contained"
+              style={{ backgroundColor: "rgb(13, 148, 171)", color: "white" }}
+              type="submit"
+            >
+              Sign Up
+            </Button>
+          </form>
+          <div>
+            <Link to="/login">
+              Already have an account registered? Log in here!
+            </Link>
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </div>
   );
 };
 
