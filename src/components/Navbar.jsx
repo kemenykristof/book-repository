@@ -25,8 +25,8 @@ const Navbar = () => {
         color: theme.font
       }}
     >
-      <h2 style={{ margin: "10px 0" }}> LET'S DO IT BY THE BOOKS</h2>
-      <p style={{fontSize:'1.5em'}}>You can add books manually or add them with the search function!</p>
+      <h2 style={{ margin: "10px 0" }}> LET'S DO IT BY THE BOOKS!</h2>
+      <p style={{fontSize:'1.5em'}}>You can add books manually or add them with the search function</p>
       <h3>Your reading list:</h3>
       {/* <p>Currently you have books to read.</p> */}
     </div>

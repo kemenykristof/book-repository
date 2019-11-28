@@ -23,7 +23,7 @@ const ThemeContextProvider = props => {
     inputColor: "#4bb3f917",
     submitButton: "#399cdf",
     authorColor: "rgb(13, 148, 171)",
-    headerColor: "rgb(13, 148, 171)"
+    headerColor: "rgba(18, 55, 62, 0.5)"
   });
   const [isLightTheme, setisLightTheme] = useState(() => {
     const localData = localStorage.getItem("isLightTheme");

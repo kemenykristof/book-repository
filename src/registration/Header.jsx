@@ -15,7 +15,7 @@ const Header = () => {
           display: "flex",
           color: "white",
           backgroundColor: theme.headerColor,
-          justifyContent: "space-around",
+          justifyContent: "space-between",
           alignContent: "center",
           textAlign: "center",
           padding: "15px"

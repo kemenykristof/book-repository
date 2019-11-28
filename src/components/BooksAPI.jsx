@@ -71,12 +71,16 @@ const BooksAPI = props => {
 
   return (
     <section>
-      <span style={{ color: theme.font, marginRight: "80px" }}>
-        Search for books
-      </span>
+      <span style={{ color: theme.font }}>Search for books</span>
       <form onSubmit={onSubmitHandler}>
         <input
-          style={{ padding: "8px", width: "200px", marginRight: "10px" }}
+          style={{
+            padding: "8px",
+            width: "90%",
+            marginRight: "10px",
+            marginBottom: "10px",
+            marginTop: "10px"
+          }}
           type="search"
           placeholder=""
           value={searchTerm}
