@@ -18,7 +18,7 @@ const BookContainer = () => {
   return (
     <div
       style={{
-        maxWidth: "800px",
+        maxWidth: "1050px",
         margin: "30px auto",
         height: "auto",
         textAlign: "center",

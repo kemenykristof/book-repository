@@ -26,19 +26,22 @@ const BooksAPI = props => {
   };
 
   const bookCardStyle = {
-    width: "200px",
+    width: "220px",
+    minHeight: "350px",
     border: "1px solid steelblue",
     margin: "0 auto",
     borderRadius: "5px",
-    overflow: "hidden"
+    overflow: "hidden",
+    padding: "5px",
+    color: theme.font
   };
 
   const renderBook = (book, index) => {
     return (
-      <li key={index}>
+      <div>
         <div style={bookCardStyle}>
           <img
-            style={{ width: "100%", height: "200px" }}
+            style={{ width: "100%", maxHeight: "150px" }}
             alt={`${book.volumeInfo.title} book`}
             src={`http://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=1&source=gbs_api`}
           />
@@ -64,8 +67,7 @@ const BooksAPI = props => {
         >
           ADD BOOK
         </div>
-        <hr />
-      </li>
+      </div>
     );
   };
 
@@ -76,7 +78,7 @@ const BooksAPI = props => {
         <input
           style={{
             padding: "8px",
-            width: "90%",
+            width: "60%",
             marginRight: "10px",
             marginBottom: "10px",
             marginTop: "10px"
@@ -102,9 +104,18 @@ const BooksAPI = props => {
           Search
         </button>
       </form>
-      <ul style={{ listStyleType: "none", color: theme.font }}>
+
+      <div
+        style={{
+          display: "grid",
+          margin: "20px 0 50px 0",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gridAutoRows: "1fr",
+          gridGap: "1em"
+        }}
+      >
         {searchedBooks.items.map(renderBook)}
-      </ul>
+      </div>
     </section>
   );
 };
