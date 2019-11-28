@@ -81,7 +81,9 @@ const BooksAPI = props => {
             width: "60%",
             marginRight: "10px",
             marginBottom: "10px",
-            marginTop: "10px"
+            marginTop: "10px",
+            borderRadius: "10px",
+            outline: "none"
           }}
           type="search"
           placeholder=""
@@ -97,7 +99,8 @@ const BooksAPI = props => {
             border: "none",
             padding: "10px 15px 10px 15px",
             position: "relative",
-            cursor: "pointer"
+            cursor: "pointer",
+            borderRadius: "5px"
           }}
           type="submit"
         >

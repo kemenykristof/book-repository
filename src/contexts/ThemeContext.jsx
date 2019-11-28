@@ -11,7 +11,7 @@ const ThemeContextProvider = props => {
     opacity: "0.5",
     font: "#424242",
     inputColor: "#C0C0C0",
-    submitButton: "#388E3C",
+    submitButton: "rgb(13, 148, 171)",
     authorColor: "rgba(232, 197, 92, 0.34) none repeat scroll 0% 0%",
     headerColor: "rgb(13, 148, 171)"
   });
