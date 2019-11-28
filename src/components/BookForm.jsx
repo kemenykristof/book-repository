@@ -31,7 +31,6 @@ const BookForm = () => {
           margin: "5px 0",
           borderRadius: "10px",
           background: theme.inputColor,
-          color: theme.font,
           border: "0"
         }}
         type="text"

@@ -71,30 +71,32 @@ const BooksAPI = props => {
 
   return (
     <section>
-      <span style={{ color: theme.font }}>Search for books</span>
+      <span style={{ color: theme.font, marginRight: "80px" }}>
+        Search for books
+      </span>
       <form onSubmit={onSubmitHandler}>
-        <label>
-          <input
-            type="search"
-            placeholder=""
-            value={searchTerm}
-            onChange={onInputChange}
-          />
+        <input
+          style={{ padding: "8px", width: "200px", marginRight: "10px" }}
+          type="search"
+          placeholder=""
+          value={searchTerm}
+          onChange={onInputChange}
+        />
 
-          <button
-            style={{
-              display: "inline",
-              background: theme.navbarColor,
-              color: theme.font,
-              border: "none",
-              padding: "10px 15px 10px 15px",
-              position: "relative"
-            }}
-            type="submit"
-          >
-            Search
-          </button>
-        </label>
+        <button
+          style={{
+            display: "inline",
+            background: theme.navbarColor,
+            color: theme.font,
+            border: "none",
+            padding: "10px 15px 10px 15px",
+            position: "relative",
+            cursor: "pointer"
+          }}
+          type="submit"
+        >
+          Search
+        </button>
       </form>
       <ul style={{ listStyleType: "none", color: theme.font }}>
         {searchedBooks.items.map(renderBook)}

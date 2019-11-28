@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import BookContainer from "./BookContainer";
 import { ThemeContext } from "../contexts/ThemeContext";
+import Header from "../registration/Header";
 
 const AppContainer = () => {
   const { isLightTheme, darkTheme, lightTheme } = useContext(ThemeContext);
@@ -17,6 +18,7 @@ const AppContainer = () => {
         overflow: "auto"
       }}
     >
+      <Header></Header>
       <BookContainer />
     </div>
   );

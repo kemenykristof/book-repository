@@ -5,13 +5,14 @@ export const ThemeContext = createContext();
 const ThemeContextProvider = props => {
   const [lightTheme] = useState({
     bodyBackground: "#FAFAFA",
-    appBackground: "rgba(232, 197, 92, 0.34) none repeat scroll 0% 0%",
+    appBackground: "rgba(200, 193, 171, 0.34) none repeat scroll 0% 0%",
     navbarColor: "#C0C0C0",
     opacity: "0.5",
-    font: "black",
+    font: "#424242",
     inputColor: "#C0C0C0",
-    submitButton: "#4CAF50",
-    authorColor: "rgba(232, 197, 92, 0.34) none repeat scroll 0% 0%"
+    submitButton: "#388E3C",
+    authorColor: "rgba(232, 197, 92, 0.34) none repeat scroll 0% 0%",
+    headerColor: "rgb(13, 148, 171)"
   });
 
   const [darkTheme] = useState({
@@ -21,7 +22,8 @@ const ThemeContextProvider = props => {
     font: "#fff",
     inputColor: "#4bb3f917",
     submitButton: "#399cdf",
-    authorColor: "rgb(13, 148, 171)"
+    authorColor: "rgb(13, 148, 171)",
+    headerColor: "rgb(13, 148, 171)"
   });
   const [isLightTheme, setisLightTheme] = useState(() => {
     const localData = localStorage.getItem("isLightTheme");

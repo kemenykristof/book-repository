@@ -3,7 +3,6 @@ import Navbar from "./Navbar";
 import BookList from "./BookList";
 import BooksAPI from "./BooksAPI";
 import BookForm from "./BookForm";
-import Home from "../registration/Home";
 import firebase from "../firebase/Firebase";
 import { bookAuthors } from "../util/BookAuthorHandler";
 
@@ -26,7 +25,6 @@ const BookContainer = () => {
         overflow: "auto"
       }}
     >
-      <Home></Home>
       <Navbar></Navbar>
       <BookList></BookList>
       <BookForm></BookForm>
