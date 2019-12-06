@@ -7,6 +7,8 @@ import SearchBar from "../components/SearchBar";
 const BooksAPI = props => {
   const [searchedBooks, setBooks] = useState({ items: [] });
   const [searchTerm, setSearchTerm] = useState("");
+  const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { isLightTheme, lightTheme, darkTheme } = useContext(ThemeContext);
   const theme = isLightTheme ? lightTheme : darkTheme;
   const onInputChange = e => {
@@ -16,9 +18,18 @@ const BooksAPI = props => {
   let API_URL = `https://www.googleapis.com/books/v1/volumes`;
 
   const fetchBooks = async () => {
-    const result = await axios.get(`${API_URL}?q=${searchTerm}`);
-    setBooks(result.data);
-    console.log(result.data);
+    // set loading Before API operation starts
+    setLoading(true);
+    setError(false);
+    try {
+      const result = await axios.get(`${API_URL}?q=${searchTerm}`);
+      setBooks(result.data);
+      console.log(result.data);
+    } catch (error) {
+      setError(true);
+    }
+    // After API operation end
+    setLoading(false);
   };
 
   const onSubmitHandler = e => {
@@ -86,9 +97,15 @@ const BooksAPI = props => {
           justifyItems: "center",
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
-          gridAutoRows: "1fr"
+          gridAutoRows: "1fr",
+          marginTop: "25px"
         }}
       >
+        {loading && (
+          <div style={{ color: `green`, textAlign: "center", margin: "auto" }}>
+            Loading books
+          </div>
+        )}
         {searchedBooks.items.map(renderBookCards)}
       </div>
     </section>
