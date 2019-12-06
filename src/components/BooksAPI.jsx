@@ -30,7 +30,6 @@ const BooksAPI = props => {
     width: "300px",
     minHeight: "450px",
     border: "1px solid steelblue",
-    margin: "0 auto",
     borderRadius: "5px",
     overflow: "hidden",
     padding: "5px",
@@ -57,14 +56,16 @@ const BooksAPI = props => {
             props.addBook(book.volumeInfo.title, book.volumeInfo.authors)
           }
           style={{
-            margin: "10px auto",
             background: theme.submitButton,
             border: "0",
             borderRadius: "10px",
             padding: "6px 20px",
             cursor: "pointer",
             minWidth: 250,
-            maxWidth: 250
+            maxWidth: 250,
+            margin: "auto",
+            marginTop: "10px",
+            marginBottom: "10px"
           }}
         >
           ADD BOOK
@@ -82,11 +83,10 @@ const BooksAPI = props => {
       ></SearchBar>
       <div
         style={{
+          justifyItems: "center",
           display: "grid",
-          margin: "20px 0 50px 0",
           gridTemplateColumns: "repeat(4, 1fr)",
-          gridAutoRows: "1fr",
-          gridGap: "1em"
+          gridAutoRows: "1fr"
         }}
       >
         {searchedBooks.items.map(renderBookCards)}
