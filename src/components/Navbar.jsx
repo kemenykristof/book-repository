@@ -7,15 +7,6 @@ const Navbar = () => {
   const theme = isLightTheme ? lightTheme : darkTheme;
   const { databaseBooks } = useContext(BookContext);
 
-  /*   const getBooksCount = () => {
-    const db = firebase.firestore();
-    db.collection("books")
-      .get()
-      .then(snap => {
-        return snap.size;
-      });
-  };
- */
   return (
     <div
       className="navbar"
@@ -32,7 +23,7 @@ const Navbar = () => {
         You can enter books manually or add them with the search function
       </p>
       <h3>Your reading list:</h3>
-      <p>Currently you have book {databaseBooks.length} to read.</p>
+      <p>Currently you have {databaseBooks.length} book to read.</p>
     </div>
   );
 };
