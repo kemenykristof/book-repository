@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
+import { BookContext } from "../contexts/BookContext";
 
 const Navbar = () => {
   const { isLightTheme, darkTheme, lightTheme } = useContext(ThemeContext);
   const theme = isLightTheme ? lightTheme : darkTheme;
+  const { databaseBooks } = useContext(BookContext);
 
   /*   const getBooksCount = () => {
     const db = firebase.firestore();
@@ -30,7 +32,7 @@ const Navbar = () => {
         You can enter books manually or add them with the search function
       </p>
       <h3>Your reading list:</h3>
-      {/* <p>Currently you have books to read.</p> */}
+      <p>Currently you have book {databaseBooks.length} to read.</p>
     </div>
   );
 };
