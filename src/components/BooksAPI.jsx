@@ -26,6 +26,7 @@ const BooksAPI = props => {
       setBooks(result.data);
       console.log(result.data);
     } catch (error) {
+      console.log(error, "Error fetching books");
       setError(true);
     }
     // After API operation end
