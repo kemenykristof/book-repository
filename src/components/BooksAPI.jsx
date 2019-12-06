@@ -4,7 +4,6 @@ import axios from "axios";
 import { bookAuthors } from "../util/BookAuthorHandler";
 import SearchBar from "../components/SearchBar";
 
-
 const BooksAPI = props => {
   const [searchedBooks, setBooks] = useState({ items: [] });
   const [searchTerm, setSearchTerm] = useState("");
@@ -38,18 +37,18 @@ const BooksAPI = props => {
     color: theme.font
   };
 
-  const renderBook = (book, index) => {
+  const renderBookCards = (book, index) => {
     return (
       <div>
         <div style={bookCardStyle}>
           <img
-            style={{ width: "100%", maxHeight: "150px" }}
+            style={{ width: "100%", maxHeight: "200px" }}
             alt={`${book.volumeInfo.title} book`}
             src={`http://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=1&source=gbs_api`}
           />
           <div>
-            <h3>{book.volumeInfo.title}</h3>
-            <h4>{bookAuthors(book.volumeInfo.authors)}</h4>
+            <span>{book.volumeInfo.title}</span>
+            <p>{bookAuthors(book.volumeInfo.authors)}</p>
             <p>{book.volumeInfo.publishedDate}</p>
           </div>
         </div>
@@ -75,10 +74,11 @@ const BooksAPI = props => {
 
   return (
     <section>
-     <SearchBar
-     searchTerm={searchTerm}
+      <SearchBar
+        searchTerm={searchTerm}
         onInputChange={onInputChange}
-        onSubmitHandler={onSubmitHandler}></SearchBar>
+        onSubmitHandler={onSubmitHandler}
+      ></SearchBar>
       <div
         style={{
           display: "grid",
@@ -88,7 +88,7 @@ const BooksAPI = props => {
           gridGap: "1em"
         }}
       >
-        {searchedBooks.items.map(renderBook)}
+        {searchedBooks.items.map(renderBookCards)}
       </div>
     </section>
   );
