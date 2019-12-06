@@ -15,13 +15,14 @@ const BookContextProvider = props => {
     db.collection("books").onSnapshot(
       snapshot => {
         const allBooks = [];
-        snapshot.forEach(doc => allBooks.push({...doc.data(), id: doc.id}));
-        console.log(allBooks, "allbooks")
+        snapshot.forEach(doc => allBooks.push({ ...doc.data(), id: doc.id }));
+        console.log(allBooks, "allbooks");
         setDatabaseBooks(allBooks);
       },
       error => console.error(error)
     );
   };
+  
 
   return (
     <BookContext.Provider value={{ databaseBooks }}>

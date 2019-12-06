@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import axios from "axios";
 import { bookAuthors } from "../util/BookAuthorHandler";
+import SearchBar from "../components/SearchBar";
+
 
 const BooksAPI = props => {
   const [searchedBooks, setBooks] = useState({ items: [] });
@@ -73,41 +75,10 @@ const BooksAPI = props => {
 
   return (
     <section>
-      <span style={{ color: theme.font }}>Search for books</span>
-      <form onSubmit={onSubmitHandler}>
-        <input
-          style={{
-            padding: "8px",
-            width: "60%",
-            marginRight: "10px",
-            marginBottom: "10px",
-            marginTop: "10px",
-            borderRadius: "10px",
-            outline: "none"
-          }}
-          type="search"
-          placeholder=""
-          value={searchTerm}
-          onChange={onInputChange}
-        />
-
-        <button
-          style={{
-            display: "inline",
-            background: theme.navbarColor,
-            color: theme.font,
-            border: "none",
-            padding: "10px 15px 10px 15px",
-            position: "relative",
-            cursor: "pointer",
-            borderRadius: "5px"
-          }}
-          type="submit"
-        >
-          Search
-        </button>
-      </form>
-
+     <SearchBar
+     searchTerm={searchTerm}
+        onInputChange={onInputChange}
+        onSubmitHandler={onSubmitHandler}></SearchBar>
       <div
         style={{
           display: "grid",
