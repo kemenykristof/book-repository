@@ -12,7 +12,7 @@ const SearchBar = props => {
         <input
           style={{
             padding: "8px",
-            width: "60%",
+            width: "47%",
             marginRight: "10px",
             marginBottom: "10px",
             marginTop: "10px",

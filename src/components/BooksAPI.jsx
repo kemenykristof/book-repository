@@ -27,8 +27,8 @@ const BooksAPI = props => {
   };
 
   const bookCardStyle = {
-    width: "220px",
-    minHeight: "350px",
+    width: "300px",
+    minHeight: "450px",
     border: "1px solid steelblue",
     margin: "0 auto",
     borderRadius: "5px",
@@ -42,12 +42,12 @@ const BooksAPI = props => {
       <div>
         <div style={bookCardStyle}>
           <img
-            style={{ width: "100%", maxHeight: "200px" }}
+            style={{ width: "100%", minHeight: "300px", maxHeight: "300px" }}
             alt={`${book.volumeInfo.title} book`}
             src={`http://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=0&source=gbs_api`}
           />
           <div>
-            <span>{book.volumeInfo.title}</span>
+            <span style={{ fontWeight: "bold" }}>{book.volumeInfo.title}</span>
             <p>{bookAuthors(book.volumeInfo.authors)}</p>
             <p>{book.volumeInfo.publishedDate}</p>
           </div>
@@ -63,7 +63,8 @@ const BooksAPI = props => {
             borderRadius: "10px",
             padding: "6px 20px",
             cursor: "pointer",
-            maxWidth: 180
+            minWidth: 250,
+            maxWidth: 250
           }}
         >
           ADD BOOK
