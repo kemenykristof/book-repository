@@ -44,7 +44,7 @@ const BooksAPI = props => {
           <img
             style={{ width: "100%", maxHeight: "200px" }}
             alt={`${book.volumeInfo.title} book`}
-            src={`http://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=1&source=gbs_api`}
+            src={`http://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=0&source=gbs_api`}
           />
           <div>
             <span>{book.volumeInfo.title}</span>

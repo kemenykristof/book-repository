@@ -23,7 +23,7 @@ const Navbar = () => {
         You can enter books manually or add them with the search function
       </p>
       <h3>Your reading list:</h3>
-      <p>Currently you have {databaseBooks.length} book to read.</p>
+      <p>Currently you have {databaseBooks.length} book(s) to read.</p>
     </div>
   );
 };
