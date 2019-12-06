@@ -38,7 +38,7 @@ const BooksAPI = props => {
   };
 
   const bookCardStyle = {
-    width: "300px",
+    width: "350px",
     minHeight: "450px",
     border: "1px solid steelblue",
     borderRadius: "5px",
