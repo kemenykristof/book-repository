@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 
 
-const Header2 = () => {
+const HeaderAuth = () => {
   const { isLightTheme, darkTheme, lightTheme } = useContext(ThemeContext);
   const theme = isLightTheme ? lightTheme : darkTheme;
 
@@ -27,4 +27,4 @@ const Header2 = () => {
   );
 };
 
-export default Header2;
+export default HeaderAuth;

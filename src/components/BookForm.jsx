@@ -31,7 +31,8 @@ const BookForm = () => {
           margin: "5px 0",
           borderRadius: "10px",
           background: theme.inputColor,
-          border: "0"
+          border: "0",
+          outline: "none"
         }}
         type="text"
         placeholder="book title"
@@ -48,7 +49,8 @@ const BookForm = () => {
           borderRadius: "10px",
           background: theme.inputColor,
           color: theme.font,
-          border: "0"
+          border: "0",
+          outline: "none"
         }}
         type="text"
         placeholder="book author"
@@ -64,7 +66,8 @@ const BookForm = () => {
           borderRadius: "10px",
           padding: "6px 20px",
           display: "block",
-          cursor: "pointer"
+          cursor: "pointer",
+          outline: "none"
         }}
         type="submit"
         value="ADD BOOK"

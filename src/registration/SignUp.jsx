@@ -9,7 +9,7 @@ import TextField from "@material-ui/core/TextField";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import Header2 from "./Header2";
+import HeaderAuth from "./HeaderAuth";
 
 const SignUp = ({ history }) => {
   const handleSignUp = useCallback(
@@ -37,7 +37,7 @@ const SignUp = ({ history }) => {
 
   return (
     <div>
-      <Header2 />
+      <HeaderAuth />
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <div style={paperStyle}>
