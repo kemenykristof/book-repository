@@ -28,6 +28,8 @@ const SignUp = ({ history }) => {
     [history]
   );
 
+
+
   const paperStyle = {
     marginTop: "60px",
     display: "flex",
