@@ -17,7 +17,8 @@ const SearchBar = props => {
             marginBottom: "10px",
             marginTop: "10px",
             borderRadius: "10px",
-            outline: "none"
+            outline: "none",
+            border: "2px solid dimgrey"
           }}
           type="search"
           placeholder=""
