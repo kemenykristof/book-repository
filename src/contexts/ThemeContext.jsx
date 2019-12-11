@@ -4,7 +4,7 @@ export const ThemeContext = createContext();
 
 const ThemeContextProvider = props => {
   const [lightTheme] = useState({
-    bodyBackground: "#FAFAFA",
+    bodyBackground: "#FFFFFF",
     appBackground: "rgba(200, 193, 171, 0.34) none repeat scroll 0% 0%",
     navbarColor: "#C0C0C0",
     bookBackground: "rgb(13, 148, 171)",

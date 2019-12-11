@@ -3,6 +3,7 @@ import { ThemeContext } from "../contexts/ThemeContext";
 import axios from "axios";
 import { bookAuthors } from "../util/BookAuthorHandler";
 import SearchBar from "../components/SearchBar";
+import Loader from "./Loader";
 
 const BooksAPI = props => {
   const [searchedBooks, setBooks] = useState({ items: [] });
@@ -18,7 +19,6 @@ const BooksAPI = props => {
   let API_URL = `https://www.googleapis.com/books/v1/volumes`;
 
   const fetchBooks = async () => {
-    // set loading Before API operation starts
     setLoading(true);
     setError(false);
     try {
@@ -29,7 +29,6 @@ const BooksAPI = props => {
       console.log(error, "Error fetching books");
       setError(true);
     }
-    // After API operation end
     setLoading(false);
   };
 
@@ -93,6 +92,7 @@ const BooksAPI = props => {
         onInputChange={onInputChange}
         onSubmitHandler={onSubmitHandler}
       ></SearchBar>
+      {loading && <Loader></Loader>}
       <div
         style={{
           justifyItems: "center",
@@ -102,11 +102,6 @@ const BooksAPI = props => {
           marginTop: "25px"
         }}
       >
-        {loading && (
-          <div style={{ color: `green`, textAlign: "center", margin: "auto" }}>
-            Loading books
-          </div>
-        )}
         {searchedBooks.items.map(renderBookCards)}
       </div>
     </section>

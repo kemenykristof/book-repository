@@ -1,14 +1,12 @@
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import BookDetails from "./BookDetails";
 import { ThemeContext } from "../contexts/ThemeContext";
-
 import { BookContext } from "../contexts/BookContext";
 
 const BookList = () => {
   const { isLightTheme, darkTheme, lightTheme } = useContext(ThemeContext);
   const theme = isLightTheme ? lightTheme : darkTheme;
-  const {databaseBooks} = useContext(BookContext)
-
+  const { databaseBooks } = useContext(BookContext);
 
   return databaseBooks.length ? (
     <div className="book-list" style={{ margin: "20px" }}>
