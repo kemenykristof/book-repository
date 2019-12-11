@@ -6,7 +6,7 @@ import SearchBar from "../components/SearchBar";
 import Loader from "./Loader";
 
 const BooksAPI = props => {
-  const [searchedBooks, setBooks] = useState({ items: [] });
+  const [searchedBooks, setSearchedBooks] = useState({ items: [] });
   const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -23,8 +23,8 @@ const BooksAPI = props => {
     setError(false);
     try {
       const result = await axios.get(`${API_URL}?q=${searchTerm}`);
-      setBooks(result.data);
-      console.log(result.data);
+      setSearchedBooks(result.data);
+      console.log(result.data, "result data");
     } catch (error) {
       console.log(error, "Error fetching books");
       setError(true);
@@ -93,6 +93,18 @@ const BooksAPI = props => {
         onSubmitHandler={onSubmitHandler}
       ></SearchBar>
       {loading && <Loader></Loader>}
+      {!searchedBooks.items && (
+        <div
+          style={{
+            color: "red",
+            textAlign: "center",
+            margin: "auto",
+            fontSize: "25px"
+          }}
+        >
+          No books were found!
+        </div>
+      )}
       <div
         style={{
           justifyItems: "center",
@@ -102,7 +114,7 @@ const BooksAPI = props => {
           marginTop: "25px"
         }}
       >
-        {searchedBooks.items.map(renderBookCards)}
+        {searchedBooks.items && searchedBooks.items.map(renderBookCards)}
       </div>
     </section>
   );
