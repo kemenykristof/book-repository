@@ -6,11 +6,11 @@ const ThemeContextProvider = props => {
   const [lightTheme] = useState({
     bodyBackground: "#FFFFFF",
     appBackground: "rgba(200, 193, 171, 0.34) none repeat scroll 0% 0%",
-    navbarColor: "#C0C0C0",
+    navbarColor: "#D0D0D0",
     bookBackground: "rgb(13, 148, 171)",
     opacity: "0.5",
     font: "#424242",
-    inputColor: "#C0C0C0",
+    inputColor: "#D0D0D0",
     submitButton: "rgb(13, 148, 171)",
     authorColor: "rgba(232, 197, 92, 0.34) none repeat scroll 0% 0%",
     headerColor: "rgb(13, 148, 171)"
@@ -19,7 +19,7 @@ const ThemeContextProvider = props => {
   const [darkTheme] = useState({
     bodyBackground: "#171f24",
     appBackground: "#38526313",
-    bookBackground:"#38526313",
+    bookBackground: "#38526313",
     navbarColor: "#4bb3f917",
     font: "#fff",
     inputColor: "#4bb3f917",
