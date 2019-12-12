@@ -10,8 +10,10 @@ import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
 import HeaderAuth from "./HeaderAuth";
+import firebase from "../firebase/Firebase";
 
 const SignUp = ({ history }) => {
+  const dbRef = firebase.firestore();
   const handleSignUp = useCallback(
     async event => {
       event.preventDefault();
@@ -19,16 +21,24 @@ const SignUp = ({ history }) => {
       try {
         await app
           .auth()
-          .createUserWithEmailAndPassword(email.value, password.value);
+          .createUserWithEmailAndPassword(email.value, password.value)
+          .then(credentials => {
+            return dbRef
+              .collection("users")
+              .doc(credentials.user.uid)
+              .set({
+                email: credentials.user.email,
+                age: 25,
+                books: []
+              });
+          });
         history.push("/");
       } catch (error) {
         alert(error);
       }
     },
-    [history]
+    [history, dbRef]
   );
-
-
 
   const paperStyle = {
     marginTop: "60px",

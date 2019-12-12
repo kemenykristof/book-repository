@@ -25,7 +25,7 @@ const BooksAPI = props => {
       const result = await axios.get(`${API_URL}?q=${searchTerm}`);
       setSearchedBooks(result.data);
       console.log(result.data, "result data");
-    } catch (error) {
+    } catch (err) {
       console.log(error, "Error fetching books");
       setError(true);
     }

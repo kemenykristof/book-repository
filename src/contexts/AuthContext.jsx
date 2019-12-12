@@ -4,6 +4,7 @@ import app from "../firebase/Firebase";
 export const AuthContext = React.createContext();
 
 export const AuthProvider = ({ children }) => {
+  const dbRef = app.firestore();
   const [currentUser, setCurrentUser] = useState(() => {
     const localData = localStorage.getItem("currentUser");
     return localData ? JSON.parse(localData) : null;
@@ -21,7 +22,7 @@ export const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider
       value={{
-        currentUser
+        currentUser, dbRef
       }}
     >
       {children}
