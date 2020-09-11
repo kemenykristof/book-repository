@@ -28,7 +28,6 @@ const SignUp = ({ history }) => {
               .doc(credentials.user.uid)
               .set({
                 email: credentials.user.email,
-                age: 25,
                 books: []
               });
           });

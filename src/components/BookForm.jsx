@@ -1,22 +1,23 @@
 import React, { useContext, useState } from "react";
 import { ThemeContext } from "../contexts/ThemeContext";
 import firebase from "../firebase/Firebase";
-import uuid from "uuid/v1";
+import { AuthContext } from "../contexts/AuthContext";
 
 const BookForm = () => {
   const [newTitle, setNewTitle] = useState("");
   const [newAuthor, setNewAuthor] = useState("");
   const { isLightTheme, darkTheme, lightTheme } = useContext(ThemeContext);
   const theme = isLightTheme ? lightTheme : darkTheme;
+  const { currentUser } = useContext(AuthContext);
 
   const handleNewBookSubmit = e => {
     e.preventDefault();
     const db = firebase.firestore();
-    db.collection("books").add({
-      title: newTitle,
-      authors: newAuthor,
-      id: uuid()
-    });
+    db.collection("users")
+      .doc(currentUser.uid)
+      .add({
+        books: [newTitle, newAuthor, false]
+      });
     setNewTitle("");
     setNewAuthor("");
   };

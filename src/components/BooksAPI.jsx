@@ -5,14 +5,14 @@ import { bookAuthors } from "../util/BookAuthorHandler";
 import SearchBar from "../components/SearchBar";
 import Loader from "./Loader";
 
-const BooksAPI = props => {
+const BooksAPI = (props) => {
   const [searchedBooks, setSearchedBooks] = useState({ items: [] });
   const [searchTerm, setSearchTerm] = useState("");
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const { isLightTheme, lightTheme, darkTheme } = useContext(ThemeContext);
   const theme = isLightTheme ? lightTheme : darkTheme;
-  const onInputChange = e => {
+  const onInputChange = (e) => {
     setSearchTerm(e.target.value);
   };
 
@@ -32,19 +32,19 @@ const BooksAPI = props => {
     setLoading(false);
   };
 
-  const onSubmitHandler = e => {
+  const onSubmitHandler = (e) => {
     e.preventDefault();
     fetchBooks();
   };
 
   const bookCardStyle = {
-    width: "350px",
-    minHeight: "450px",
+    width: "240px",
+    minHeight: "350px",
     border: "1px solid steelblue",
     borderRadius: "5px",
     overflow: "hidden",
     padding: "5px",
-    color: theme.font
+    color: theme.font,
   };
 
   const renderBookCards = (book, index) => {
@@ -52,9 +52,13 @@ const BooksAPI = props => {
       <div>
         <div style={bookCardStyle}>
           <img
-            style={{ width: "100%", minHeight: "300px", maxHeight: "300px" }}
+            style={{ width: "100%", minHeight: "200px", maxHeight: "200px" }}
             alt={`${book.volumeInfo.title} book`}
-            src={`http://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=0&source=gbs_api`}
+            src={
+              book.volumeInfo.imageLinks === undefined
+                ? ""
+                : `${book.volumeInfo.imageLinks.thumbnail}`
+            }
           />
           <div>
             <span style={{ fontWeight: "bold" }}>{book.volumeInfo.title}</span>
@@ -70,13 +74,13 @@ const BooksAPI = props => {
             background: theme.submitButton,
             border: "0",
             borderRadius: "10px",
-            padding: "6px 20px",
+            padding: "6px",
             cursor: "pointer",
             minWidth: 250,
             maxWidth: 250,
             margin: "auto",
             marginTop: "10px",
-            marginBottom: "10px"
+            marginBottom: "10px",
           }}
         >
           ADD BOOK
@@ -99,7 +103,7 @@ const BooksAPI = props => {
             color: "red",
             textAlign: "center",
             margin: "auto",
-            fontSize: "25px"
+            fontSize: "25px",
           }}
         >
           No books were found!
@@ -111,7 +115,7 @@ const BooksAPI = props => {
           display: "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
           gridAutoRows: "1fr",
-          marginTop: "25px"
+          marginTop: "25px",
         }}
       >
         {searchedBooks.items && searchedBooks.items.map(renderBookCards)}
